@@ -18,8 +18,10 @@ addProductBtn.addEventListener('click', function () {
     // totol price;
     const totalPrice = parseInt(itemPrice.value) * parseInt(itemQuantity.value);
     console.log('totalPrice -- ', totalPrice)
-    const tr = document.createElement('tr');
-    const th = document.createElement('th');
+    // const tr = document.createElement('tr');
+    const tr = element('tr');
+    // const th = document.createElement('th');
+    const th = element('th');
     const td1 = document.createElement('td');
     const td2 = document.createElement('td');
     const td3 = document.createElement('td');
@@ -38,6 +40,10 @@ addProductBtn.addEventListener('click', function () {
     infoTable.appendChild(tr);
 
     totalCalculation();
+    //be shortcut
+    function element(param) {
+        return document.createElement(param);
+    }
 
 
     //clear product details inputs
@@ -54,7 +60,10 @@ function totalCalculation() {
 
     //tax
     const tax = subTotal * .2;
-    document.getElementById('tax').innerText = tax;
+    document.getElementById('tax').innerText = tax.toFixed(2);
+    //grand-total
+    document.getElementById('grand-total').innerText = subTotal + tax;
+    document.getElementById('grand-total-2').innerText = subTotal + tax;
 }
 function calcSubTotal() {
     let subTotal = 0;
