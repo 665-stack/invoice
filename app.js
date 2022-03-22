@@ -52,6 +52,9 @@ function totalCalculation() {
     const subTotalToDisplay = document.getElementById('sub-total');
     subTotalToDisplay.innerText = subTotal;
 
+    //tax
+    const tax = subTotal * .2;
+    document.getElementById('tax').innerText = tax;
 }
 function calcSubTotal() {
     let subTotal = 0;
